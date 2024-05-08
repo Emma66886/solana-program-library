@@ -233,7 +233,6 @@ async fn test_deposit_initial_community_tokens_with_owner_must_sign_error() {
         &governance_test.bench.context.payer.pubkey(),
         amount,
         &realm_cookie.account.community_mint,
-        false // is_token_2022
     );
 
     deposit_ix.accounts[3] = AccountMeta::new_readonly(token_owner.pubkey(), false);
@@ -283,7 +282,6 @@ async fn test_deposit_community_tokens_with_malicious_holding_account_error() {
         &governance_test.bench.context.payer.pubkey(),
         amount,
         &realm_cookie.account.community_mint,
-        false // is_token_2022
     );
 
     // Try to maliciously deposit to the source

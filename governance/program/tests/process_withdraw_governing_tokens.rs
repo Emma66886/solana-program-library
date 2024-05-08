@@ -119,7 +119,6 @@ async fn test_withdraw_community_tokens_with_owner_must_sign_error() {
         &hacker_token_destination,
         &token_owner_record_cookie.token_owner.pubkey(),
         &realm_cookie.account.community_mint,
-        false
     );
 
     withdraw_ix.accounts[3] =
@@ -167,7 +166,6 @@ async fn test_withdraw_community_tokens_with_token_owner_record_address_mismatch
         &hacker_record_cookie.token_source,
         &hacker_record_cookie.token_owner.pubkey(),
         &realm_cookie.account.community_mint,
-        false // is_token_2022
     );
 
     withdraw_ix.accounts[4] = AccountMeta::new(vote_record_address, false);
@@ -307,7 +305,6 @@ async fn test_withdraw_tokens_with_malicious_holding_account_error() {
         &token_owner_record_cookie.token_source,
         &token_owner_record_cookie.token_owner.pubkey(),
         &realm_cookie.account.community_mint,
-        false // is_token_2022
     );
 
     withdraw_ix.accounts[1].pubkey = realm_token_account_cookie.address;
